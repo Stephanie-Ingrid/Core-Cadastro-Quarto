@@ -1,9 +1,9 @@
 package com.clickquartos.corecadastroquarto.service;
 
-import com.clickquartos.corecadastroquarto.documento.Endereco;
 import com.clickquartos.corecadastroquarto.dto.EnderecoDTO;
 import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import com.clickquartos.corecadastroquarto.integration.CepIntegration;
+import com.clickquartos.corecadastroquarto.integration.model.EnderecoResponse;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -24,7 +24,7 @@ public class CepServiceImpl implements CepService{
     @Override
     public EnderecoDTO buscaEnderecoCep( String cep ){
 
-        Endereco endereco = cepIntegration.buscaEnderecoCep( cep );
+        EnderecoResponse endereco = cepIntegration.buscaEnderecoCep( cep );
         if(endereco == null){
             log.error("endereço está nulo");
             throw new NotFoundException("endereço não encontrado");
