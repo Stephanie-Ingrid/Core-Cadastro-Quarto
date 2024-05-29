@@ -1,13 +1,14 @@
 package com.clickquartos.corecadastroquarto.integration;
 
-import com.clickquartos.corecadastroquarto.documento.Endereco;
+import com.clickquartos.corecadastroquarto.integration.model.EnderecoResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(url= "https://viacep.com.br/ws" , name = "viacep")
+@FeignClient(url= "${url.viacep}" , value = "viacep")
 public interface CepIntegration {
-    @GetMapping("{cep}/json")
-    Endereco buscaEnderecoCep (@PathVariable("cep") String cep);
+    @GetMapping("/{cep}/json")
+    EnderecoResponse buscaEnderecoCep (@PathVariable("cep") String cep);
+
 
 }
