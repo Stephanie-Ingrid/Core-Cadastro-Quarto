@@ -17,7 +17,7 @@ public class CepController {
     @ResponseStatus(HttpStatus.OK)
     public EnderecoDTO buscaEnderecoCep(@PathVariable ("cep") String cep){
 
-       return cepService.buscaEnderecoCep(cep);
+        return cepService.buscaEnderecoCep(cep);
     }
 
 
