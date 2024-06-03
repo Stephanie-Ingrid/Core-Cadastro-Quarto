@@ -24,6 +24,8 @@ public class Morador {
 
     private String telefone;
 
+    private String email;
+
     private Endereco endereco;
 
     private String empresa;
