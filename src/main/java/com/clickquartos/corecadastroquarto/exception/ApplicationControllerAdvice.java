@@ -3,6 +3,7 @@ package com.clickquartos.corecadastroquarto.exception;
 import com.clickquartos.corecadastroquarto.exception.erros.BadRequestException;
 import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -22,7 +23,7 @@ public class ApplicationControllerAdvice {
     }
 
     @ExceptionHandler( BadRequestException.class )
-    @ResponseStatus(BAD_REQUEST)
+    @ResponseStatus( BAD_REQUEST )
     @ResponseBody
     public ApiErros handleBadRequestException(BadRequestException e) {
         return new ApiErros(e.getMessage());
@@ -36,6 +37,15 @@ public class ApplicationControllerAdvice {
         log.error(e.getMessage(), e);
 
         return new ApiErros( "Sistema Indisponivel, por favor tente mais tarde ou contate um administrador!" );
+    }
+
+    @ExceptionHandler( MethodArgumentNotValidException.class )
+    @ResponseStatus( BAD_REQUEST )
+    @ResponseBody
+    public ApiErros handleBadRequestException(MethodArgumentNotValidException e){
+        log.error(e.getMessage(), e);
+
+        return new ApiErros("campo invalido, digite novamente ou contate um administrador!");
     }
 
 }
