@@ -16,9 +16,9 @@ public class MoradorController {
 
     @PostMapping
     @ResponseStatus( HttpStatus.CREATED )
-    public MoradorDTO cadastrarMorador(@RequestBody @Validated MoradorDTO moradorDTO){
+    public MoradorDTO cadastrarMorador( @RequestBody @Validated MoradorDTO moradorDTO ){
 
-        return moradorService.cadastrarMorador(moradorDTO);
+        return moradorService.cadastrarMorador( moradorDTO );
     }
 
 }
