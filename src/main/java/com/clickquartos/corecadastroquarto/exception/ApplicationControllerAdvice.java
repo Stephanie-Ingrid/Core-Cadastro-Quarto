@@ -3,6 +3,7 @@ package com.clickquartos.corecadastroquarto.exception;
 import com.clickquartos.corecadastroquarto.exception.erros.BadRequestException;
 import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,7 +46,15 @@ public class ApplicationControllerAdvice {
     public ApiErros handleBadRequestException(MethodArgumentNotValidException e){
         log.error(e.getMessage(), e);
 
-        return new ApiErros("campo invalido, digite novamente ou contate um administrador!");
+        return new ApiErros("campo inválido, digite novamente ou contate um administrador!");
+    }
+    @ExceptionHandler( HttpMessageNotReadableException.class )
+    @ResponseStatus( BAD_REQUEST )
+    @ResponseBody
+    public ApiErros handleBadRequestException(HttpMessageNotReadableException e){
+        log.error(e.getMessage(), e);
+
+        return new ApiErros("Campo 'Estado Civil' e 'Disponibilidade' devem ser MAIÚSCULOS");
     }
 
 }
