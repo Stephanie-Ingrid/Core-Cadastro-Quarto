@@ -1,6 +1,7 @@
 package com.clickquartos.corecadastroquarto.config;
 
 import com.clickquartos.corecadastroquarto.service.ScheduledService;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -10,14 +11,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Configuration
 @EnableScheduling
 @Slf4j
+@Data
 public class ScheduledConfig {
 
-    @Autowired
     private ScheduledService scheduledService;
 
 
 //    @Scheduled(cron = "0 * * ? * *") *Teste
-    @Scheduled(cron = "0 0 8 ? * TUE *")
+    @Scheduled( cron = "0 0 8 ? * TUE" )
     private void disparoFaxina (){
 
         log.info("iniciou disparo faxina");

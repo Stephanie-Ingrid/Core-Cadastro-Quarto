@@ -2,15 +2,16 @@ package com.clickquartos.corecadastroquarto.controller;
 
 import com.clickquartos.corecadastroquarto.dto.EnderecoDTO;
 import com.clickquartos.corecadastroquarto.service.CepService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cep")
+@Data
 public class CepController {
 
-    @Autowired
     private CepService cepService;
 
     @GetMapping("/{cep}")

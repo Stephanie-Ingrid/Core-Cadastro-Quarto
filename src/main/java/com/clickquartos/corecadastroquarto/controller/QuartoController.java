@@ -2,6 +2,7 @@ package com.clickquartos.corecadastroquarto.controller;
 
 import com.clickquartos.corecadastroquarto.dto.QuartoDTO;
 import com.clickquartos.corecadastroquarto.service.QuartoService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -12,8 +13,9 @@ import java.util.List;
 @RestController
 @Validated
 @RequestMapping( "/quartos" )
+@Data
 public class QuartoController {
-    @Autowired
+
     private QuartoService quartoService;
 
     @PostMapping

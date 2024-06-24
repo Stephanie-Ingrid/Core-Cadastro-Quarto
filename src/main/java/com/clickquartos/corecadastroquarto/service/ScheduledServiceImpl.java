@@ -6,6 +6,7 @@ import com.clickquartos.corecadastroquarto.integration.DisparoIntegration;
 import com.clickquartos.corecadastroquarto.integration.model.DisparoEmailRequest;
 import com.clickquartos.corecadastroquarto.integration.model.DisparoEmailResponse;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,13 @@ import java.util.List;
 
 @Service
 @Slf4j
+@Data
 public class ScheduledServiceImpl implements ScheduledService {
-    @Autowired
+
+
     private QuartoRepository quartoRepository;
 
-    @Autowired
     private DisparoIntegration disparoIntegration;
-
-
-
 
     @Override
     public void schedulerFaxina() {

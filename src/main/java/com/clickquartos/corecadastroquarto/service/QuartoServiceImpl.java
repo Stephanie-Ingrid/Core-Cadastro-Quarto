@@ -6,6 +6,7 @@ import com.clickquartos.corecadastroquarto.exception.erros.BadRequestException;
 import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -19,11 +20,11 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Data
 public class QuartoServiceImpl implements QuartoService{
 
-    @Autowired
     private QuartoRepository quartoRepository;
-    @Autowired
+
     private ModelMapper modelMapper;
 
     @Override

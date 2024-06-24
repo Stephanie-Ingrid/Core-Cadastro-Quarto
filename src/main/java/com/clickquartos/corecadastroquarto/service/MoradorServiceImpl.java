@@ -10,6 +10,7 @@ import com.clickquartos.corecadastroquarto.integration.DisparoIntegration;
 import com.clickquartos.corecadastroquarto.integration.model.DisparoEmailRequest;
 import com.clickquartos.corecadastroquarto.integration.model.DisparoEmailResponse;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,18 +20,15 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Data
 public class MoradorServiceImpl implements MoradorService{
 
-    @Autowired
     private ModelMapper modelMapper;
 
-    @Autowired
     private CepService cepService;
 
-    @Autowired
     private QuartoRepository quartoRepository;
 
-    @Autowired
     private DisparoIntegration disparoIntegration;
 
 

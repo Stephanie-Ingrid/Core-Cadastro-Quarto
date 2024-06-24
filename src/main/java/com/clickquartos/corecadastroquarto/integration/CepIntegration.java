@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(url= "${url.viacep}" , value = "viacep")
 public interface CepIntegration {
+
     @GetMapping("/{cep}/json")
     EnderecoResponse buscaEnderecoCep (@PathVariable("cep") String cep);
-
-
 }

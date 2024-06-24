@@ -5,6 +5,7 @@ import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import com.clickquartos.corecadastroquarto.integration.CepIntegration;
 import com.clickquartos.corecadastroquarto.integration.model.EnderecoResponse;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,13 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@Data
 public class CepServiceImpl implements CepService{
-    @Autowired
+
     private ModelMapper modelMapper;
-    @Autowired
+
     private QuartoRepository quartoRepository;
-    @Autowired
+
     private CepIntegration cepIntegration;
 
     @Override
