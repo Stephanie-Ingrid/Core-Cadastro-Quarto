@@ -1,16 +1,14 @@
 package com.clickquartos.corecadastroquarto.service;
 
-import com.clickquartos.corecadastroquarto.dto.QuartoDTO;
 import com.clickquartos.corecadastroquarto.documento.Quarto;
+import com.clickquartos.corecadastroquarto.dto.QuartoDTO;
 import com.clickquartos.corecadastroquarto.exception.erros.BadRequestException;
 import com.clickquartos.corecadastroquarto.exception.erros.NotFoundException;
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Type;

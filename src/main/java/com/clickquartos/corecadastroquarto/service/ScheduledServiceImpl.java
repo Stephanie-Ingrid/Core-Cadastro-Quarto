@@ -8,7 +8,6 @@ import com.clickquartos.corecadastroquarto.integration.model.DisparoEmailRespons
 import com.clickquartos.corecadastroquarto.repository.QuartoRepository;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.List;
 @Slf4j
 @Data
 public class ScheduledServiceImpl implements ScheduledService {
-
 
     private QuartoRepository quartoRepository;
 
@@ -49,10 +47,10 @@ public class ScheduledServiceImpl implements ScheduledService {
 
         List<Quarto> quartoList = quartoRepository.findAll();
 
-        for ( Quarto quarto : quartoList ) {
+        for (Quarto quarto : quartoList) {
             Morador morador = quarto.getMorador();
 
-            if (isMoradorValido(morador)){
+            if (isMoradorValido(morador)) {
 
                 disparoEmailNatal(morador.getEmail(), morador.getNomeCompleto());
                 log.info("Email Natal enviado: " + quarto.getCodigoQuarto());
